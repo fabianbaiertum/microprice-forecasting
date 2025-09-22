@@ -1,4 +1,5 @@
 # microprice-forecasting
+## multi-level microprice
 The top of the book microprice is a concept discussed in a paper by Sasha Stoikov, and the book Algorithmic and High Frequency Trading by Cartea et al., which resembles a better estimate of the fair value of an asset than its midprice, which is a low frequency trading signal. My main interest in the microprice is in the context of market making, as the MM is trying to find a fair value, around which he wants to place his bid and ask prices.
 Here, I extended this concept such that it uses multiple levels of LOB data, making it a more robust estimate of the fair value.
 
