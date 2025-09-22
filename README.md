@@ -12,9 +12,7 @@ That scenario isn't considered by the top of the book microprice, but in my exte
 
 The first idea would be to just sum all bid volumes and all ask volumes and calculate the microprice as for the top of the book microprice, but this is flawed, as the 2nd best bid could be far away from the best bid, and thus equal weighting is unrealistic. I propose to have an exponential decay for the weighting, the further away your bids are from the best bid, as well as the asks from your best ask. Also, the volume will be weighted with this distance-based scheme.
 This new feature introduces two possible parameters to optimize: the number of levels you consider for the multi-level microprice and also the decay rate alpha. 
-
-
-
+This also introduces the concept of a multi-level order imbalance on the fly, as the microprice can be written as a function of the midprice, spread and order book imbalance.
 
 ## Machine Learning models and data preparation
 
