@@ -15,9 +15,11 @@ This new feature introduces two possible parameters to optimize: the number of l
 This also introduces the concept of a multi-level order imbalance on the fly, as the microprice can be written as a function of the midprice, spread and order book imbalance.
 
 ## Machine Learning models and data preparation
+For the preprocessing, I added the features spread and multi-level order book imbalance to the LOB data set. Then I applied fractionally differentiation, to make it stationary, but with minimal memory loss, as proposed by Marcos Lopez de Prado in his book Advances in Financial Machine Learning. This improved the performance of the algorithm compared to not using it.
+
+I tried 3 different models, LSTM, linear regression and MLP with ReLU hidden layers. LSTM performed best and beat the baseline models, which were just taking the previous time steps mid price or previous time steps microprice as the prediction. The other ML models didn't beat the baseline models.
 
 ## Forecasting results
-As features, I use spread, multi-level order book imbalance, and the top 5 bid/ask prices and volumes.
-The label is the microprice of the next time step, given the last 20 time steps of the LOB data.
+The label is the microprice 5 time steps in the future, given the last 20 time steps of the LOB data. As can be seen in the plot, the LSTM performed best.
 
 ![Trained Microprice Forecasts](micropriceforecast.png)
