@@ -3,7 +3,7 @@ The top of the book microprice is a concept discussed in a paper by Sasha Stoiko
 Here, I extended this concept such that it uses multiple levels of LOB data, making it a more robust estimate of the fair value.
 
 Consider the following example:
-ask @ 101$/1000 shares,   bid @ 100$/10 shares. When using the traditional microprice, you would skew your prices towards the bid price as there is higher pressure to sell  (microprice would be =100.01$.
+ask @ 101$/1000 shares,   bid @ 100$/10 shares. When using the traditional microprice, you would skew your prices towards the bid price as there is higher pressure to sell  (microprice would be =100.01$).
 But what if there is a large volume available at the 2nd best bid @ 99$/ 1M shares? 
 That scenario isn't considered by the top of the book microprice, but in my extension with an exponential weighting scheme.
 
