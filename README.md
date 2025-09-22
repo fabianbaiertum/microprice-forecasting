@@ -9,6 +9,7 @@ Consider the following example:
 ask @ 101$/1000 shares,   bid @ 100$/10 shares. When using the traditional microprice, you would skew your prices towards the bid price, as there is higher pressure to sell  (microprice would be =100.01$).
 But what if there is a large volume available at the 2nd best bid @ 99$/ 1M shares? 
 That scenario isn't considered by the top of the book microprice, but in my extension with an exponential weighting scheme.
+
 The first idea would be to just sum all bid volumes and all ask volumes and calculate the microprice as for the top of the book microprice, but this is flawed, as the 2nd best bid could be far away from the best bid, and thus equal weighting is unrealistic. I propose to have an exponential decay for the weighting, the further away your bids are from the best bid, as well as the asks from your best ask. Also, the volume will be weighted with this distance-based scheme.
 This new feature introduces two possible parameters to optimize: the number of levels you consider for the multi-level microprice and also the decay rate alpha. 
 
