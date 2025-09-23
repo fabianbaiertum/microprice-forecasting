@@ -1,4 +1,4 @@
-# Microprice-forecasting
+# Microprice forecasting
 
 ## Multi-level microprice
 
