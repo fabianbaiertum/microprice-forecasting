@@ -1,8 +1,8 @@
 # ============================================================
-# Predict future microprice with TF (Linear, MLP, LSTM) + tqdm
+# Predict future microprice with (Linear, MLP, LSTM) compared to baseline models: either last midprice or microprice
 # Dataset: tsla_orderbook_ml_dataset_L1_top5.csv
 # Features: micro_now, mid_now, spread, multi-level OBI, sizes, ladder distances
-# Target: microprice[t+H] (absolute). Train on delta, add back micro_now.
+# Target: microprice[t+H]. Train on delta, add back micro_now.
 # Fracdiff toggle + head alignment for fair A/B comparisons.
 # ============================================================
 
@@ -21,7 +21,6 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers, regularizers, callbacks
 
-# Progress
 from tqdm.auto import tqdm
 
 # ------------------ CONFIG ------------------
@@ -237,7 +236,7 @@ X_all     = X_all.values
 T, F = X_all.shape
 print(f"Samples after prep: {T}, features: {F}")
 
-# ------------------ BUILD SEQUENCES (with tqdm) ------------------
+# ------------------ BUILD SEQUENCES ------------------
 def build_sequences(X: np.ndarray,
                     micro: np.ndarray,
                     mid: np.ndarray,
